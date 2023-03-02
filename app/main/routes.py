@@ -14,11 +14,20 @@ from app.main import bp
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
-    posts = [Post(body='my first post!', user_id=1, language='EN'),
-             Post(body='my second post!', user_id=2, language='EN'),
-             Post(body='my third post!', user_id=3, language='EN'),
-             Post(body='my fourth post!', user_id=1, language='EN'),
-             Post(body='my fifth post!', user_id=2, language='EN')]
+    #getting posts from DB
+    posts = Post.query.all()
+
+    if (len(posts) == 0):
+        #generating some data because I was not able to find seed data in project
+        posts = [Post(body='my first post!', user_id=1, language='EN'),
+                Post(body='my second post!', user_id=2, language='EN'),
+                Post(body='my third post!', user_id=3, language='EN'),
+                Post(body='my fourth post!', user_id=1, language='EN'),
+                Post(body='my fifth post!', user_id=2, language='EN')]
+
+        for post in posts:
+            db.session.add(post)
+        db.session.commit()
     return render_template('index.html', title=_('Home'), posts=posts)
 
 

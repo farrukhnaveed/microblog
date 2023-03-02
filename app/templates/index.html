@@ -3,14 +3,19 @@
 {% block app_content %}
     <h1>You're doing it!</h1>
     <br>
-    <table class="table table-hover">
-        <tr>
-            <td>
-                <br>
-                <span id="post1">This is my one and only blog post. Can you add more using a for loop?</span>
-            </td>
-        </tr>
-    </table>
+    {% if posts|length == 0 %}
+        <p>No posts available</p>
+    {% else %}
+        <table class="table table-hover">
+            {%for post in posts %}
+                <tr>
+                    <td>
+                        <span id="{{ loop.index0 }}">{{post["body"]|capitalize}}</span>
+                    </td>
+                </tr>
+            {%endfor%}
+        </table>
+    {% endif %}
     <nav aria-label="...">
         <ul class="pager">
             <li class="previous{% if not prev_url %} disabled{% endif %}">
