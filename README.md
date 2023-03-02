@@ -1,16 +1,18 @@
-# Welcome to Wellfound's microblog assessment!
+# Welcome to Wellfound's microblog assessment solution!
 
-## Goal
-Your task is to update the home page of this Flask app to display all of the rows in the blog posts table instead of just the static single row.
+## Results
 
-Clone/fork this repository and make a commit with this change. After you've made your changes, please take a screenshot of the updated home page and include it in the README of your public repository. Finally, email the link to your public repository to clayton.bridge@wellfound.co, and please include your full name in the email!
+Home page:
+<img width="880" alt="image" src="https://user-images.githubusercontent.com/5990773/222345376-54ebd021-2d4b-4523-aa78-442adf0de194.png">
 
-<BR><BR>
+Explore:
+<img width="861" alt="image" src="https://user-images.githubusercontent.com/5990773/222345517-8e38e139-b21d-47f5-a652-ccad394ecbd6.png">
 
-## Contributions
-Feel free to clone this repo locally and use your own editor of choice.
+Explanation:
+- 1st step is to get posts from DB.
+- If posts are not available then populate DB with sample data.
+- Logic is added in such a way that sample data is only added once.
+- Posts from db are sent to template.
 
-If you would rather use the Gitpod development environment for this app:
-
-- Change the dropdown that says "Web IDE" to "Gitpod" (if it already says "Gitpod" skip this step)
-- Click the button that says "Gitpod"
+Code block: https://github.com/farrukhnaveed/microblog/blob/main/app/main/routes.py#L17-L30
+Complete commit: https://github.com/farrukhnaveed/microblog/commit/c7197851398ddb67eca2adc033e8cca344147b0e
